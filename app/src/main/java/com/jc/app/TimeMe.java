@@ -91,7 +91,6 @@ public class TimeMe extends Activity {
                 chronometer.stop();
 
                 String doneText = chronometer.getText().toString();
-                //Log.d("donetime", doneText); //change this to add to SQL
 
                 int seconds = 0;
                 String array[] = doneText.split(":");
@@ -109,8 +108,6 @@ public class TimeMe extends Activity {
                 var.complete = "true";
                 var.name = "---" + var.name + "---";
                 db.addTask(var);
-
-                //Log.d("seconds", Integer.toString(seconds)); //change this to add SQL
 
                 //when activity is done go back to main screen
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);

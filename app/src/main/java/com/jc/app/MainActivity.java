@@ -36,15 +36,23 @@ public class MainActivity extends Activity{
             public void onItemClick(AdapterView<?> arg0, View arg1,
                                     int pos, long ide) {
 
-                Intent i = new Intent(getApplicationContext(), TimeMe.class); // creates a new intent i, which is how Android passes information between activities, and defines this intent as a way to navigate to the SecondActivity
-//                Log.d("arg0 is ", arg0.toString());
-//                Log.d("arg1 is ", arg1.toString());
-//                Log.d("pos is ", String.valueOf(pos));
-//                Log.d("id is ", String.valueOf(ide));
-                i.putExtra("position", String.valueOf(pos));
-                i.putExtra("id", ide);
-                i.putExtra("name",((Task) arg0.getItemAtPosition(pos)).name);
-                startActivityForResult(i, 1); // tells Android to make the intent active
+                String completed = ((Task) arg0.getItemAtPosition(pos)).complete;
+
+                if (completed.equals("true")) {
+                    Intent i = new Intent(getApplicationContext(), DoneActivity.class); // creates a new intent i, which is how Android passes information between activities, and defines this intent as a way to navigate to the SecondActivity
+                    i.putExtra("position", String.valueOf(pos));
+                    i.putExtra("id", ide);
+                    i.putExtra("name",((Task) arg0.getItemAtPosition(pos)).name);
+                    startActivityForResult(i, 1); // tells Android to make the intent active
+                }
+                else {
+                    Intent i = new Intent(getApplicationContext(), TimeMe.class); // creates a new intent i, which is how Android passes information between activities, and defines this intent as a way to navigate to the SecondActivity
+                    i.putExtra("position", String.valueOf(pos));
+                    i.putExtra("id", ide);
+                    i.putExtra("name",((Task) arg0.getItemAtPosition(pos)).name);
+                    startActivityForResult(i, 1); // tells Android to make the intent active
+                }
+
             }
 
             ;
