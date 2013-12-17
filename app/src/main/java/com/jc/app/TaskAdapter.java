@@ -49,7 +49,11 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         }
 
         Task item = data.get(position);
-        holder.name.setText(item.name);
+        String shorter = item.name;
+        if (item.name.length() > 20) {
+            shorter = item.name.substring(0,20)+"...";
+        }
+        holder.name.setText(shorter);
 
         return feedRow;
     }

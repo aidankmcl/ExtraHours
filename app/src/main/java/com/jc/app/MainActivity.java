@@ -41,7 +41,9 @@ public class MainActivity extends Activity{
 //                Log.d("arg1 is ", arg1.toString());
 //                Log.d("pos is ", String.valueOf(pos));
 //                Log.d("id is ", String.valueOf(ide));
-                i.putExtra("new_variable_name", String.valueOf(pos));
+                i.putExtra("position", String.valueOf(pos));
+                i.putExtra("id", ide);
+                i.putExtra("name",((Task) arg0.getItemAtPosition(pos)).name);
                 startActivityForResult(i, 1); // tells Android to make the intent active
             }
 

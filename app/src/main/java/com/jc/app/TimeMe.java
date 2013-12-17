@@ -19,6 +19,8 @@ import java.util.ArrayList;
  * Created by amclaughlin on 12/17/13.
  */
 public class TimeMe extends Activity {
+    Task var;
+    String name;
     private Chronometer chronometer;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,21 +29,29 @@ public class TimeMe extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.timer);
 
-        DBHandler db = new DBHandler(this);
-        db.open();
-        ArrayList<Task> tasks = db.getTasks();
-
         Bundle extras = getIntent().getExtras();
         String value = null;
+
+        final String ide;
         if (extras != null) {
-            value = extras.getString("new_variable_name");
-            //Log.d("extrasss", value);
+            value = extras.getString("position");
+            ide = extras.getString("id");
+            name = extras.getString("name");
+            Log.d("extrasss", name);
+        } else {
+            ide = "0";
         }
 
-        String booya = tasks.get(Integer.parseInt(value)).toString();
+        final DBHandler db = new DBHandler(this);
+        db.open();
+        var = db.getTaskByName(name);
+        ArrayList<Task> tasks = db.getTasks();
 
+
+        String booya = tasks.get(Integer.parseInt(value)).toString();
         //Log.d("Please work you can do it", booya);
         TextView timerSubject = (TextView) findViewById(R.id.timerSubject);
+
         timerSubject.setText(booya);
 
         chronometer = (Chronometer) findViewById(R.id.chronometer);
@@ -93,6 +103,13 @@ public class TimeMe extends Activity {
                             + Integer.parseInt(array[1]) * 60
                             + Integer.parseInt(array[2]);
                 }
+                db.deleteTaskByName(name);
+                var.length = doneText;
+                var.time = seconds;
+                var.complete = "true";
+                var.name = "---" + var.name + "---";
+                db.addTask(var);
+
                 //Log.d("seconds", Integer.toString(seconds)); //change this to add SQL
 
                 //when activity is done go back to main screen

@@ -5,15 +5,17 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center">
 
-    <TextView
+    <com.jc.app.AutoResizeTextView
         android:id="@+id/timerSubject"
         android:layout_width="wrap_content"
+        android:gravity="center"
+        android:maxLines="3"
         android:text="Timer"
         android:textSize="40sp"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:layout_height="120dp"
+        android:padding="5dp"
         android:textIsSelectable="true"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="10dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 

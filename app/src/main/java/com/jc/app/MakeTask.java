@@ -37,7 +37,7 @@ public class MakeTask extends Activity {
                 String name = inputTaskName.getText().toString();
                 Integer when = whenIsIt.getProgress();
 
-                Task task = new Task(name,"false","none",0,0);
+                Task task = new Task(name,"false","none",0,when);
                 task.setId("");
                 db.addTask(task);
                 ArrayList<Task> meow = db.getTasks();

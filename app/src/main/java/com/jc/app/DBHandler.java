@@ -38,7 +38,7 @@ public class DBHandler {
 
     //Update a post
     public void updateTask(Task task){
-        deleteTaskById(task.id);
+        deleteTaskByName(task.id);
         addTask(task);
     }
 
@@ -77,12 +77,16 @@ public class DBHandler {
     //Getting Tasks by Size in descending priority order
     public ArrayList<Task> getTasks(){
         return sweepCursor(
-                database.query(DBModel.TABLE_NAME, allColumns, null, null, null, null,DBModel.WHEN+ " DESC"));
+                database.query(DBModel.TABLE_NAME, allColumns, null, null, null, null,DBModel.WHEN));
+        }
+
+        public Task getTaskByName(String name){
+            return sweepCursor(database.query(DBModel.TABLE_NAME,allColumns,DBModel.TASK_NAME + " like '%" + name + "%'", null,null,null,null)).get(0);
         }
 
         //Delete Tasks by ID
-        public void deleteTaskById(String id){
-            database.delete(DBModel.TABLE_NAME, DBModel.TASK_ID + " like '%" + id + "%'", null);
+        public void deleteTaskByName(String name){
+            database.delete(DBModel.TABLE_NAME, DBModel.TASK_NAME + " like '%" + name + "%'", null);
         }
 
     //Get Tasks from Cursor
