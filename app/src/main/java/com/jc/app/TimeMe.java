@@ -35,12 +35,12 @@ public class TimeMe extends Activity {
         String value = null;
         if (extras != null) {
             value = extras.getString("new_variable_name");
-            Log.d("extrasss", value);
+            //Log.d("extrasss", value);
         }
 
         String booya = tasks.get(Integer.parseInt(value)).toString();
 
-        Log.d("Please work you can do it", booya);
+        //Log.d("Please work you can do it", booya);
         TextView timerSubject = (TextView) findViewById(R.id.timerSubject);
         timerSubject.setText(booya);
 
@@ -81,7 +81,7 @@ public class TimeMe extends Activity {
                 chronometer.stop();
 
                 String doneText = chronometer.getText().toString();
-                Log.d("donetime", doneText); //change this to add to SQL
+                //Log.d("donetime", doneText); //change this to add to SQL
 
                 int seconds = 0;
                 String array[] = doneText.split(":");
@@ -93,7 +93,7 @@ public class TimeMe extends Activity {
                             + Integer.parseInt(array[1]) * 60
                             + Integer.parseInt(array[2]);
                 }
-                Log.d("seconds", Integer.toString(seconds)); //change this to add SQL
+                //Log.d("seconds", Integer.toString(seconds)); //change this to add SQL
 
                 //when activity is done go back to main screen
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
