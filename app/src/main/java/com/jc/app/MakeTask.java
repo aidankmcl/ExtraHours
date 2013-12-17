@@ -7,8 +7,8 @@ import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class MakeTask extends Activity {
         setContentView(R.layout.new_task);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Button addToSQL = (Button) findViewById(R.id.addTask);
+        final ImageButton addToSQL = (ImageButton) findViewById(R.id.addTask);
         final SeekBar whenIsIt = (SeekBar) findViewById(R.id.whenIsIt);
 
         db = new DBHandler(this);
