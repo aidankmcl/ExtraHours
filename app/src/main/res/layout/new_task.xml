@@ -26,17 +26,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="New Task"
-        android:id="@+id/textView"
-        android:layout_alignBottom="@+id/taskName"
+        android:layout_marginTop="60dp"
+        android:textSize="40sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="75dp" />
+        android:text="New Task"
+        android:id="@+id/textView"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:padding="0dp"
         android:text="Homie"
         android:id="@+id/addTask"
+        android:src="@drawable/add"
         android:layout_below="@+id/whenIsIt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp" />
