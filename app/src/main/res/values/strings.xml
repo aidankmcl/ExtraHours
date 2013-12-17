@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Extra Hours</string>
+    <string name="app_name">Extra Hour</string>
     <string name="title_item_detail">Current Task</string>
     <color name="black">#000000</color>
 
