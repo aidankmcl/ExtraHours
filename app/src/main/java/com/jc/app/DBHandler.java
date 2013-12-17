@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -59,7 +58,7 @@ public class DBHandler {
         if (ids.size() < 1) {
             ids.add("aaa");
         }
-        Log.i("ids", ids.toString());
+//        Log.i("ids", ids.toString());
         return ids;
     }
 
@@ -110,7 +109,7 @@ public class DBHandler {
         );
 
         task.setId(cursor.getString(5));
-        Log.i ("id", cursor.getString(5));
+//        Log.i ("id", cursor.getString(5));
         return task;
     }
 }

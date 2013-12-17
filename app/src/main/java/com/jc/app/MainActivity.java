@@ -3,7 +3,6 @@ package com.jc.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,7 +22,7 @@ public class MainActivity extends Activity{
         setContentView(R.layout.activity_main);
 
         ListView mainTasks = (ListView) findViewById(R.id.mainTasks);
-        Log.d("RealContent here", RealContent.ITEMS.toString());
+//        Log.d("RealContent here", RealContent.ITEMS.toString());
 
         DBHandler db = new DBHandler(this);
         db.open();
@@ -38,10 +37,10 @@ public class MainActivity extends Activity{
                                     int pos, long ide) {
 
                 Intent i = new Intent(getApplicationContext(), TimeMe.class); // creates a new intent i, which is how Android passes information between activities, and defines this intent as a way to navigate to the SecondActivity
-                Log.d("arg0 is ", arg0.toString());
-                Log.d("arg1 is ", arg1.toString());
-                Log.d("pos is ", String.valueOf(pos));
-                Log.d("id is ", String.valueOf(ide));
+//                Log.d("arg0 is ", arg0.toString());
+//                Log.d("arg1 is ", arg1.toString());
+//                Log.d("pos is ", String.valueOf(pos));
+//                Log.d("id is ", String.valueOf(ide));
                 i.putExtra("new_variable_name", String.valueOf(pos));
                 startActivityForResult(i, 1); // tells Android to make the intent active
             }

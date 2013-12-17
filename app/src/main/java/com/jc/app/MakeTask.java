@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -43,8 +42,8 @@ public class MakeTask extends Activity {
                 db.addTask(task);
                 ArrayList<Task> meow = db.getTasks();
 
-                Log.d("where you at, God?", task.name.toString());
-                Log.d("size of database", meow.toString());
+//                Log.d("where you at, God?", task.name.toString());
+//                Log.d("size of database", meow.toString());
 
 
                 ArrayList<Task> tasks = db.getTasks();
