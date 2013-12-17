@@ -35,14 +35,14 @@
     <ImageButton
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
+        android:background="@null"
         android:padding="0dp"
         android:text="Homie"
         android:id="@+id/addTask"
-        android:src="@drawable/add"
+        android:src="@drawable/add_circle"
         android:layout_below="@+id/whenIsIt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp" />
-
+        android:layout_marginTop="22dp"/>
 
 </RelativeLayout>
