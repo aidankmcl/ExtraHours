@@ -30,13 +30,14 @@ public class DoneActivity extends Activity {
 
         Bundle extras = getIntent().getExtras();
         String value = null;
+        int pos;
 
         final String ide;
         if (extras != null) {
             value = extras.getString("position");
+            pos = Integer.parseInt(value);
             ide = extras.getString("id");
             name = extras.getString("name");
-            Log.d("extrasss", name);
         } else {
             ide = "0";
         }
@@ -48,10 +49,16 @@ public class DoneActivity extends Activity {
 
 
         String taskName = tasks.get(Integer.parseInt(value)).toString();
-        //Log.d("Please work you can do it", booya);
-        TextView timerSubject = (TextView) findViewById(R.id.textView);
+        TextView taskSubject = (TextView) findViewById(R.id.textView);
+        taskSubject.setText(taskName);
 
-        timerSubject.setText(taskName);
+        TextView averageView = (TextView) findViewById(R.id.average);
+        int totalTime = var.allTime;
+        int totalTries = var.total;
+        int average = totalTime/totalTries;
+        averageView.setText(intToTime(average));
+        TextView bestView = (TextView) findViewById(R.id.best);
+        bestView.setText(intToTime(var.best));
 
     }
 
@@ -63,5 +70,31 @@ public class DoneActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public String intToTime(int time) {
+        int seconds = time % 60;
+        String secondsString = String.valueOf(seconds);
+        if (secondsString.length() == 1) {
+            secondsString = "0" + secondsString;
+        }
+        int minutes = time / 60;
+        String minutesString = String.valueOf(minutes);
+        if (minutesString.length() == 1) {
+            minutesString = "0" + minutesString;
+        }
+        if (minutes >= 60) {
+            minutes = time % 60;
+            minutesString = String.valueOf(minutes);
+            if (minutesString.length() == 1) {
+                minutesString = "0" + minutesString;
+            }
+            int hours = time / 60;
+            String hoursString = String.valueOf(hours);
+            String timeString = hoursString + ":" + minutesString + ":" + secondsString;
+        }
+        String timeString = minutesString + ":" + secondsString;
+
+        return timeString;
     }
 }
