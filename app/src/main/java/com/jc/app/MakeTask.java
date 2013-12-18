@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by amclaughlin on 12/16/13.
@@ -31,21 +35,34 @@ public class MakeTask extends Activity {
             @Override
             public void onClick(View view) {
                 EditText inputTaskName = (EditText) findViewById(R.id.inputTaskName);
+                ArrayList<Task> tasks = db.getTasks();
+                String skip = "false";
 
                 String name = inputTaskName.getText().toString();
                 Integer when = whenIsIt.getProgress();
 
-                Task task = new Task(name,"false","none",0,when,100000,0,0);
-                task.setId("");
-                db.addTask(task);
+                for (int x = 0; x < tasks.size(); x++) {
+                    Log.d("namesss", tasks.get(x).name);
+                    if (name.equals(tasks.get(x).name)) {
+                        Toast.makeText(getApplicationContext(), "Please use unique names", Toast.LENGTH_SHORT).show();
+                        skip = "true";
+                        break;
+                    }
+                }
+                if (skip.equals("false")) {
+                    Task task = new Task(name,"false","none",0,when,100000,0,0);
+                    task.setId("");
+                    db.addTask(task);
 
-//                Log.d("where you at, God?", task.name.toString());
-//                Log.d("size of database", meow.toString());
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(i);
+                }
 
-
-                //go back to the last thing you looked at
-                Intent in = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(in);
+                if (skip.equals("true")) {
+                    inputTaskName.setText("");
+//                    Intent i = new Intent(getApplicationContext(), MakeTask.class);
+//                    startActivity(i);
+                }
             }
         });
     }
