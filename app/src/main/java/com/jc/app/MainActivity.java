@@ -25,7 +25,6 @@ public class MainActivity extends Activity{
         setContentView(R.layout.activity_main);
 
         final ListView mainTasks = (ListView) findViewById(R.id.mainTasks);
-//        Log.d("RealContent here", RealContent.ITEMS.toString());
 
         final DBHandler db = new DBHandler(this);
         db.open();
