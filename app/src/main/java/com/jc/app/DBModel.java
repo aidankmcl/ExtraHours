@@ -15,6 +15,9 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String LENGTH = "time";
     public static final String TIME = "seconds";
     public static final String WHEN = "day";
+    public static final String BEST = "latest";
+    public static final String ALL_TIME = "all";
+    public static final String TOTAL_DONE = "num";
     public static final String TASK_ID = "id";
 
     public static final String DB_NAME = "EH";
@@ -27,6 +30,9 @@ public class DBModel extends SQLiteOpenHelper {
             + LENGTH + " TEXT NOT NULL, "
             + TIME + " INTEGER NOT NULL, "
             + WHEN + " INTEGER NOT NULL, "
+            + BEST + " INTEGER NOT NULL, "
+            + ALL_TIME + " INTEGER NOT NULL, "
+            + TOTAL_DONE + " INTEGER NOT NULL, "
             + TASK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT);";
 
     public DBModel(Context context) {

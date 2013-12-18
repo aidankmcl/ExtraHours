@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
-import java.util.ArrayList;
-
 /**
  * Created by amclaughlin on 12/16/13.
  */
@@ -37,17 +35,12 @@ public class MakeTask extends Activity {
                 String name = inputTaskName.getText().toString();
                 Integer when = whenIsIt.getProgress();
 
-                Task task = new Task(name,"false","none",0,when);
+                Task task = new Task(name,"false","none",0,when,1000000,0,0);
                 task.setId("");
                 db.addTask(task);
-                ArrayList<Task> meow = db.getTasks();
 
 //                Log.d("where you at, God?", task.name.toString());
 //                Log.d("size of database", meow.toString());
-
-
-                ArrayList<Task> tasks = db.getTasks();
-                RealContent.addItem(task);
 
 
                 //go back to the last thing you looked at

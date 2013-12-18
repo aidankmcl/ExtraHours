@@ -20,6 +20,9 @@ public class DBHandler {
             DBModel.TIME,
             DBModel.LENGTH,
             DBModel.WHEN,
+            DBModel.BEST,
+            DBModel.ALL_TIME,
+            DBModel.TOTAL_DONE,
             DBModel.TASK_ID,
     };
 
@@ -70,6 +73,7 @@ public class DBHandler {
         values.put(DBModel.LENGTH, newTask.length);
         values.put(DBModel.TIME, newTask.time);
         values.put(DBModel.WHEN, newTask.when);
+        values.put(DBModel.BEST, newTask.best);
 
         this.database.insert(DBModel.TABLE_NAME,null,values);
     }

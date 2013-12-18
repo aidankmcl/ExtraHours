@@ -23,11 +23,11 @@ public class RealContent {
      */
     public static Map<String, Task> ITEM_MAP = new HashMap<String, Task>();
 
-    static {
-        // Add 3 sample items.
-        Task item1 = new Task("Winner","true","00:47",47,23);
-        addItem(item1);
-    }
+//    static {
+//        // Add 3 sample items.
+//        Task item1 = new Task("Winner","true","00:47",47,23,);
+//        addItem(item1);
+//    }
 
     static void addItem(Task item) {
         ITEMS.add(item);

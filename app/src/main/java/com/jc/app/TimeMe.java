@@ -48,11 +48,11 @@ public class TimeMe extends Activity {
         ArrayList<Task> tasks = db.getTasks();
 
 
-        String booya = tasks.get(Integer.parseInt(value)).toString();
+        String nameOfTask = tasks.get(Integer.parseInt(value)).toString();
         //Log.d("Please work you can do it", booya);
         TextView timerSubject = (TextView) findViewById(R.id.timerSubject);
 
-        timerSubject.setText(booya);
+        timerSubject.setText(nameOfTask);
 
         chronometer = (Chronometer) findViewById(R.id.chronometer);
         chronometer.setBase(SystemClock.elapsedRealtime());
@@ -103,11 +103,18 @@ public class TimeMe extends Activity {
                             + Integer.parseInt(array[1]) * 60
                             + Integer.parseInt(array[2]);
                 }
+
                 db.deleteTaskByName(name);
                 var.length = doneText;
                 var.time = seconds;
                 var.complete = "true";
-                var.name = "---" + var.name + "---";
+                var.alltime = var.alltime + seconds;
+                var.total += 1;
+
+                if (seconds < var.best) {
+                    var.best = seconds;
+                }
+
                 db.addTask(var);
 
                 //Log.d("seconds", Integer.toString(seconds)); //change this to add SQL
