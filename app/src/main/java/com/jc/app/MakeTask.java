@@ -35,7 +35,7 @@ public class MakeTask extends Activity {
                 String name = inputTaskName.getText().toString();
                 Integer when = whenIsIt.getProgress();
 
-                Task task = new Task(name,"false","none",0,when,1000000,0,0);
+                Task task = new Task(name,"false","none",0,when,100000,0,0);
                 task.setId("");
                 db.addTask(task);
 

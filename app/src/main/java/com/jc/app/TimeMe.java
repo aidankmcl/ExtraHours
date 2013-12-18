@@ -107,7 +107,7 @@ public class TimeMe extends Activity {
                 var.length = doneText;
                 var.time = seconds;
                 var.complete = "true";
-                var.alltime = var.alltime + seconds;
+                var.allTime = var.allTime + seconds;
                 var.total += 1;
 
                 if (seconds < var.best) {

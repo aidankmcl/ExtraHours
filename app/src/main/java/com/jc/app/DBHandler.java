@@ -46,7 +46,7 @@ public class DBHandler {
     }
 
     public ArrayList<String> getAllTaskIds() {
-        Cursor cursor = database.query(DBModel.TABLE_NAME, new String[]{DBModel.TASK_ID},null,null,null,null,null);
+        Cursor cursor = database.query(DBModel.TABLE_NAME, new String[]{DBModel.TASK_ID},null,null,null,null,null,null);
         ArrayList<String> ids = new ArrayList<String>();
         cursor.moveToFirst();
         String CurID;
@@ -74,6 +74,8 @@ public class DBHandler {
         values.put(DBModel.TIME, newTask.time);
         values.put(DBModel.WHEN, newTask.when);
         values.put(DBModel.BEST, newTask.best);
+        values.put(DBModel.ALL_TIME, newTask.allTime);
+        values.put(DBModel.TOTAL_DONE, newTask.total);
 
         this.database.insert(DBModel.TABLE_NAME,null,values);
     }
@@ -81,7 +83,7 @@ public class DBHandler {
     //Getting Tasks by Size in descending priority order
     public ArrayList<Task> getTasks(){
         return sweepCursor(
-                database.query(DBModel.TABLE_NAME, allColumns, null, null, null, null,DBModel.WHEN));
+                database.query(DBModel.TABLE_NAME, allColumns, null, null, null, null, DBModel.WHEN));
         }
 
         public Task getTaskByName(String name){
@@ -113,10 +115,13 @@ public class DBHandler {
                 cursor.getString(1),
                 cursor.getString(2),
                 cursor.getInt(3),
-                cursor.getInt(4)
+                cursor.getInt(4),
+                cursor.getInt(5),
+                cursor.getInt(6),
+                cursor.getInt(7)
         );
 
-        task.setId(cursor.getString(5));
+        task.setId(cursor.getString(8));
 //        Log.i ("id", cursor.getString(5));
         return task;
     }

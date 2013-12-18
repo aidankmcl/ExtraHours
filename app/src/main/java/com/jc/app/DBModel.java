@@ -15,8 +15,8 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String LENGTH = "time";
     public static final String TIME = "seconds";
     public static final String WHEN = "day";
-    public static final String BEST = "latest";
-    public static final String ALL_TIME = "all";
+    public static final String BEST = "record";
+    public static final String ALL_TIME = "elapsed";
     public static final String TOTAL_DONE = "num";
     public static final String TASK_ID = "id";
 
