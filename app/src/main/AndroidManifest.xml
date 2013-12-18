@@ -32,6 +32,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jc.app.ItemListActivity" />
         </activity>
+        
         <activity android:name=".MakeTask" android:label="Add Task"/>
         <activity android:name=".TimeMe" android:label="Timer"/>
         <activity android:name=".DoneActivity" android:label="DoneActivity"/>

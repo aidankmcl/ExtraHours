@@ -1,6 +1,8 @@
 package com.jc.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,14 +23,14 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView mainTasks = (ListView) findViewById(R.id.mainTasks);
+        final ListView mainTasks = (ListView) findViewById(R.id.mainTasks);
 //        Log.d("RealContent here", RealContent.ITEMS.toString());
 
-        DBHandler db = new DBHandler(this);
+        final DBHandler db = new DBHandler(this);
         db.open();
-        ArrayList<Task> tasks = db.getTasks();
+        final ArrayList<Task> tasks = db.getTasks();
 
-        TaskAdapter taskListAdapter = new TaskAdapter(this.getApplicationContext(), tasks);
+        final TaskAdapter taskListAdapter = new TaskAdapter(this.getApplicationContext(), tasks);
 
         mainTasks.setAdapter(taskListAdapter);
 
@@ -56,6 +58,37 @@ public class MainActivity extends Activity{
             }
 
             ;
+        });
+
+        mainTasks.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            public boolean onItemLongClick(final AdapterView<?> arg0, View arg1,
+                                           final int pos, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Erase this task?");
+
+                // Set up the buttons
+                builder.setPositiveButton("OK", new
+                        DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String title = ((Task) arg0.getItemAtPosition(pos)).name;
+                                db.deleteTaskByName(title);
+                                taskListAdapter.notifyDataSetChanged();
+                                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivityForResult(i, 1);
+                            }
+                        });
+                builder.setNegativeButton("NO!", new
+                        DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        });
+                builder.show();
+
+                return true;
+            }
         });
     }
 
