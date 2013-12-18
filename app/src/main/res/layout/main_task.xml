@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:lines="1"
-        android:maxLines="1"
+        android:lines="2"
+        android:maxLines="2"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +15,35 @@
         android:textColor="@color/black"
         android:text="Let's do it"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginTop="5dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/taskText"
+        android:layout_marginTop="50dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Average: "
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:id="@+id/avg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/taskText"
+        android:layout_toRightOf="@+id/avg"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="00:00"
+        android:textSize="30sp"
+        android:id="@+id/avgnum"
+        android:layout_marginLeft="25dp" />
+    </LinearLayout>
 
 </RelativeLayout>

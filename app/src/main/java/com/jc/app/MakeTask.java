@@ -41,7 +41,7 @@ public class MakeTask extends Activity {
                 String name = inputTaskName.getText().toString();
                 Integer when = whenIsIt.getProgress();
 
-                for (int x = 0; x < tasks.size(); x++) {
+                for (int x = 0; x<tasks.size(); x++) {
                     Log.d("namesss", tasks.get(x).name);
                     if (name.equals(tasks.get(x).name)) {
                         Toast.makeText(getApplicationContext(), "Please use unique names", Toast.LENGTH_SHORT).show();

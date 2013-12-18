@@ -3,14 +3,8 @@ package com.jc.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Chronometer;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -72,7 +66,7 @@ public class DoneActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public String intToTime(int time) {
+    public static String intToTime(int time) {
         int seconds = time % 60;
         String secondsString = String.valueOf(seconds);
         if (secondsString.length() == 1) {
