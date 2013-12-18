@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,14 @@ public class MainActivity extends Activity{
         final ArrayList<Task> tasks = db.getTasks();
 
         final TaskAdapter taskListAdapter = new TaskAdapter(this.getApplicationContext(), tasks);
+
+        TextView message = (TextView) findViewById(R.id.textView);
+        if (taskListAdapter.isEmpty()){
+            message.setVisibility(View.VISIBLE);
+        }
+        else {
+            message.setVisibility(View.GONE);
+        }
 
         mainTasks.setAdapter(taskListAdapter);
 

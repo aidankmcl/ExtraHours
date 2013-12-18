@@ -3,6 +3,7 @@
 
     <string name="app_name">Extra Hour</string>
     <string name="title_item_detail">Current Task</string>
+    <string name="no_tasks_message">To add to your task list, click the NEW button in the top right corner</string>
     <color name="black">#000000</color>
 
 </resources>

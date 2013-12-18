@@ -59,6 +59,8 @@ public class DoneActivity extends Activity {
         averageView.setText(intToTime(average));
         TextView bestView = (TextView) findViewById(R.id.best);
         bestView.setText(intToTime(var.best));
+        TextView todayView = (TextView) findViewById(R.id.today);
+        todayView.setText(intToTime(Integer.parseInt(var.length)));
 
     }
 
