@@ -2,6 +2,7 @@ package com.jc.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.NavUtils;
@@ -52,7 +53,9 @@ public class TimeMe extends Activity {
         //Log.d("Please work you can do it", booya);
         TextView timerSubject = (TextView) findViewById(R.id.timerSubject);
 
+        Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
         timerSubject.setText(nameOfTask);
+        timerSubject.setTypeface(tf);
 
         chronometer = (Chronometer) findViewById(R.id.chronometer);
         chronometer.setBase(SystemClock.elapsedRealtime());

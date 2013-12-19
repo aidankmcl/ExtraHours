@@ -25,30 +25,10 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Change them fonts
-        TextView aoo = (TextView) findViewById(R.id.avgText);
-        TextView boo = (TextView) findViewById(R.id.avgnumText);
-
-        TextView doo = (TextView) findViewById(R.id.timerSubject);
-        TextView oooo = (TextView) findViewById(R.id.taskText);
-        //TextView aosi = (TextView) findViewById(R.id.titleNewTask);
         TextView asio = (TextView) findViewById(R.id.hintText);
 
         Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
-
         asio.setTypeface(tf);
-//        aosi.setTypeface(tf);
-
-//        asio.setTypeface(tf);
-//        e.setTypeface(tf);
-//        f.setTypeface(tf);
-//        g.setTypeface(tf);
-
-
-
-
-
-
 
         final ListView mainTasks = (ListView) findViewById(R.id.mainTasks);
 
@@ -142,6 +122,18 @@ public class MainActivity extends Activity{
                 Intent i = new Intent(getApplicationContext(), MakeTask.class);
                 startActivityForResult(i, 1);
                 return true;
+            case R.id.resetAll:
+                DBHandler db = new DBHandler(this);
+                db.open();
+                ArrayList<Task> tasks = db.getTasks();
+                for (int x=0;x<tasks.size();x++) {
+                    Task inBetween = tasks.get(x);
+                    inBetween.complete = "false";
+                    db.deleteTaskByName(tasks.get(x).name);
+                    db.addTask(inBetween);
+                    Intent resetActivity = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(resetActivity);
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }

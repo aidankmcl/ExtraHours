@@ -2,6 +2,7 @@ package com.jc.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -29,6 +31,13 @@ public class MakeTask extends Activity {
         final ImageButton addToSQL = (ImageButton) findViewById(R.id.addTask);
         final SeekBar whenIsIt = (SeekBar) findViewById(R.id.whenIsIt);
         final ImageView priority = (ImageView) findViewById(R.id.imageView);
+        TextView TitleTaskMake = (TextView) findViewById(R.id.newTaskTitle);
+
+        Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
+        TitleTaskMake.setTypeface(tf);
+
+
+
         priority.setVisibility(View.VISIBLE);
 
         db = new DBHandler(this);

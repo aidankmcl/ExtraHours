@@ -2,6 +2,7 @@ package com.jc.app;
 
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,13 @@ public class TaskAdapter extends ArrayAdapter<Task> {
             holder = new FeedItemHolder();
             holder.name = (TextView) feedRow.findViewById(R.id.taskText);
             holder.avgn = (TextView) feedRow.findViewById(R.id.avgnumText);
+            TextView averageTextColon = (TextView) feedRow.findViewById(R.id.avgText);
+
+            Typeface tf = Typeface.createFromAsset(context.getAssets(), "missiongl.otf");
+            holder.name.setTypeface(tf);
+            holder.avgn.setTypeface(tf);
+            averageTextColon.setTypeface(tf);
+
 
             feedRow.setTag(holder);
         } else {
@@ -65,6 +73,8 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         }
 
         String av = DoneActivity.intToTime(average);
+
+
 
         holder.name.setText(shorter);
         holder.avgn.setText(av);

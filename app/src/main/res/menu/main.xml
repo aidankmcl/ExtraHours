@@ -5,4 +5,8 @@
         android:title="NEW"
         android:orderInCategory="100"
         android:showAsAction="ifRoom" />
+    <item android:id="@+id/resetAll"
+        android:title="RESET"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom" />
 </menu>
