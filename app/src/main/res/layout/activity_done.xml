@@ -12,6 +12,7 @@
         android:id="@+id/DoneTaskTitle"
         android:textSize="40sp"
         android:layout_margin="50dp"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal" />
 
     <TextView
@@ -20,6 +21,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Today:"
         android:id="@+id/displayTodayBelow"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
@@ -28,6 +30,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="3:15"
         android:id="@+id/today"
+        android:textColor="@color/white"
         android:layout_marginBottom="20dp"
         android:layout_gravity="center_horizontal"/>
 
@@ -36,6 +39,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Average:"
+        android:textColor="@color/white"
         android:id="@+id/displayAverageBelow"
         android:layout_gravity="center_horizontal"/>
 
@@ -45,6 +49,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="3:00"
         android:id="@+id/average"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"/>
 
@@ -54,6 +59,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Best"
         android:id="@+id/displayBestBelow"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
@@ -62,6 +68,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="2:45"
         android:id="@+id/best"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"/>
 
