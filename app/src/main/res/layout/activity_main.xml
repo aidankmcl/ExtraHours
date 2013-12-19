@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/no_tasks_message"
-        android:id="@+id/textView"
+        android:id="@+id/hintText"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/abc_action_bar_progress_bar_size" />
