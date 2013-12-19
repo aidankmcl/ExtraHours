@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -27,6 +28,8 @@ public class MakeTask extends Activity {
 
         final ImageButton addToSQL = (ImageButton) findViewById(R.id.addTask);
         final SeekBar whenIsIt = (SeekBar) findViewById(R.id.whenIsIt);
+        final ImageView priority = (ImageView) findViewById(R.id.imageView);
+        priority.setVisibility(View.VISIBLE);
 
         db = new DBHandler(this);
         db.open();

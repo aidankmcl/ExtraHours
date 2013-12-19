@@ -5,16 +5,17 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="25sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/inputTaskName"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/newTaskTitle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="153dp" />
+        android:layout_marginBottom="50dp"/>
 
     <SeekBar
         android:layout_marginBottom="50dp"
@@ -23,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/whenIsIt"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/addTask"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -34,7 +35,7 @@
         android:textSize="40sp"
         android:layout_centerHorizontal="true"
         android:text="New Task"
-        android:id="@+id/textView"/>
+        android:id="@+id/newTaskTitle"/>
 
     <ImageButton
         android:layout_width="100dp"
@@ -44,36 +45,19 @@
         android:padding="0dp"
         android:text="Homie"
         android:id="@+id/addTask"
-        android:src="@drawable/add_circle"
-        android:layout_below="@+id/whenIsIt"
+        android:src="@drawable/add_circle2"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"/>
+        android:layout_marginBottom="50dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Priority"
-        android:id="@+id/textView2"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/priority"
         android:layout_above="@id/whenIsIt"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="+"
-        android:id="@+id/textView3"
-        android:layout_above="@id/whenIsIt"
-        android:layout_alignLeft="@id/whenIsIt" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="-"
-        android:id="@+id/textView4"
-        android:layout_above="@id/whenIsIt"
-        android:layout_alignRight="@id/whenIsIt" />
 
 </RelativeLayout>
