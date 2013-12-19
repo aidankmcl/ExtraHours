@@ -17,7 +17,7 @@ public class EraseDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle extras = savedInstanceState.getBundle("name");
-        Log.d("is it here hmmmmm", extras.toString());
+        //Log.d("is it here hmmmmm", extras.toString());
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage("Erase this task?")
