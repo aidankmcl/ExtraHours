@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,6 +25,31 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Change them fonts
+        TextView aoo = (TextView) findViewById(R.id.avgText);
+        TextView boo = (TextView) findViewById(R.id.avgnumText);
+
+        TextView doo = (TextView) findViewById(R.id.timerSubject);
+        TextView oooo = (TextView) findViewById(R.id.taskText);
+        TextView aosi = (TextView) findViewById(R.id.titleNewTask);
+        TextView asio = (TextView) findViewById(R.id.hintText);
+
+        Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
+
+        asio.setTypeface(tf);
+//        aosi.setTypeface(tf);
+
+//        asio.setTypeface(tf);
+//        e.setTypeface(tf);
+//        f.setTypeface(tf);
+//        g.setTypeface(tf);
+
+
+
+
+
+
+
         final ListView mainTasks = (ListView) findViewById(R.id.mainTasks);
 
         final DBHandler db = new DBHandler(this);
@@ -32,7 +58,7 @@ public class MainActivity extends Activity{
 
         final TaskAdapter taskListAdapter = new TaskAdapter(this.getApplicationContext(), tasks);
 
-        TextView message = (TextView) findViewById(R.id.textView);
+        TextView message = (TextView) findViewById(R.id.hintText);
         if (taskListAdapter.isEmpty()){
             message.setVisibility(View.VISIBLE);
         }

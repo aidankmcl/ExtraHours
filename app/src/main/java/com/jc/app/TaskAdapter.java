@@ -45,7 +45,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
             feedRow = inflater.inflate(R.layout.main_task, parent, false);
             holder = new FeedItemHolder();
             holder.name = (TextView) feedRow.findViewById(R.id.taskText);
-            holder.avgn = (TextView) feedRow.findViewById(R.id.avgnum);
+            holder.avgn = (TextView) feedRow.findViewById(R.id.avgnumText);
 
             feedRow.setTag(holder);
         } else {

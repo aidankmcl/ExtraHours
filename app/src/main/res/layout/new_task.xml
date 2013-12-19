@@ -34,7 +34,7 @@
         android:textSize="40sp"
         android:layout_centerHorizontal="true"
         android:text="New Task"
-        android:id="@+id/textView"/>
+        android:id="@+id/titleNewTask"/>
 
     <ImageButton
         android:layout_width="100dp"
