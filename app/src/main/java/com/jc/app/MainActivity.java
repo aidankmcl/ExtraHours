@@ -31,7 +31,7 @@ public class MainActivity extends Activity{
 
         TextView doo = (TextView) findViewById(R.id.timerSubject);
         TextView oooo = (TextView) findViewById(R.id.taskText);
-        TextView aosi = (TextView) findViewById(R.id.titleNewTask);
+        //TextView aosi = (TextView) findViewById(R.id.titleNewTask);
         TextView asio = (TextView) findViewById(R.id.hintText);
 
         Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
