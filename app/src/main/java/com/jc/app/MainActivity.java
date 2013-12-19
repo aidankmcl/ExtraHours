@@ -80,7 +80,7 @@ public class MainActivity extends Activity{
                                            final int pos, long id) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Erase this task?");
-
+                
                 // Set up the buttons
                 builder.setPositiveButton("OK", new
                         DialogInterface.OnClickListener() {
