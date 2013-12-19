@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginTop="60dp"
-        android:textSize="45sp"
+        android:textSize="50sp"
         android:layout_centerHorizontal="true"
         android:textColor="@color/suBlue"
         android:text="New Task"
