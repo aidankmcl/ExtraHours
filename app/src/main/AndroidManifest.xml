@@ -24,14 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.jc.app.ItemDetailActivity"
-            android:label="@string/title_item_detail"
-            android:parentActivityName=".ItemListActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jc.app.ItemListActivity" />
-        </activity>
         
         <activity android:name=".MakeTask" android:label="Add Task"/>
         <activity android:name=".TimeMe" android:label="Timer"/>

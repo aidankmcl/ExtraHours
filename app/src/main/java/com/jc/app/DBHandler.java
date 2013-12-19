@@ -30,6 +30,14 @@ public class DBHandler {
         model = new DBModel(context);
     }
 
+    public void resetComplete() {
+        ArrayList<Task> tasks = getTasks();
+        for (int i=0;i<tasks.size();i++) {
+            tasks.get(i).complete = "false";
+            updateTask(tasks.get(i));
+        }
+    }
+
     //Opening the Database (Getting the writable Database)
     public void open(){
         database = model.getWritableDatabase();
