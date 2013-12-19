@@ -54,7 +54,19 @@ public class TaskAdapter extends ArrayAdapter<Task> {
             holder.name.setTypeface(tf);
             holder.avgn.setTypeface(tf);
             averageTextColon.setTypeface(tf);
+            holder.name.setTextColor(Color.parseColor("#ffffff"));
+            holder.avgn.setTextColor(Color.parseColor("#ffffff"));
+            averageTextColon.setTextColor(Color.parseColor("#ffffff"));
 
+            Task isComplete = data.get(position);
+
+            if (isComplete.complete.equals("true")) {
+                feedRow.setBackgroundColor(Color.parseColor("#6ACD70"));
+            } else {
+                holder.name.setTextColor(Color.parseColor("#14b8db"));
+                holder.avgn.setTextColor(Color.parseColor("#14b8db"));
+                averageTextColon.setTextColor(Color.parseColor("#14b8db"));
+            }
 
             feedRow.setTag(holder);
         } else {
@@ -74,11 +86,6 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         }
 
         String av = DoneActivity.intToTime(average);
-
-        String completed = item.complete;
-        if (completed.equals("true")) {
-            feedRow.setBackgroundColor(Color.parseColor("#6ACD70"));
-        }
 
         holder.name.setText(shorter);
         holder.avgn.setText(av);

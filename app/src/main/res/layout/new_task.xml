@@ -2,7 +2,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" android:background="@color/light">
 
     <EditText
         android:layout_width="match_parent"
@@ -13,6 +13,7 @@
         android:layout_marginRight="50dp"
         android:layout_marginTop="5dp"
         android:id="@+id/inputTaskName"
+        android:textColor="@color/suBlue"
         android:layout_below="@+id/newTaskTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"/>
@@ -32,8 +33,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginTop="60dp"
-        android:textSize="40sp"
+        android:textSize="45sp"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/suBlue"
         android:text="New Task"
         android:id="@+id/newTaskTitle"/>
 

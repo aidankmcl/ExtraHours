@@ -2,11 +2,11 @@ package com.jc.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -54,8 +54,12 @@ public class TimeMe extends Activity {
         Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
         timerSubject.setText(nameOfTask);
         timerSubject.setTypeface(tf);
+        timerSubject.setTextColor(Color.parseColor("#14b8db"));
 
         chronometer = (Chronometer) findViewById(R.id.chronometer);
+        chronometer.setTextColor(Color.parseColor("#14b8db"));
+        chronometer.setTypeface(tf);
+
         chronometer.setBase(SystemClock.elapsedRealtime());
         ImageButton start_button = (ImageButton) findViewById(R.id.start_button);
         ImageButton stop_button = (ImageButton) findViewById(R.id.stop_button);
