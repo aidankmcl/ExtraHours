@@ -2,6 +2,7 @@ package com.jc.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
@@ -43,7 +44,7 @@ public class DoneActivity extends Activity {
 
 
         String taskName = tasks.get(Integer.parseInt(value)).toString();
-        TextView taskSubject = (TextView) findViewById(R.id.textView);
+        TextView taskSubject = (TextView) findViewById(R.id.DoneTaskTitle);
         taskSubject.setText(taskName);
 
         TextView averageView = (TextView) findViewById(R.id.average);
@@ -55,6 +56,20 @@ public class DoneActivity extends Activity {
         bestView.setText(intToTime(var.best));
         TextView todayView = (TextView) findViewById(R.id.today);
         todayView.setText(intToTime(Integer.parseInt(var.length)));
+
+        TextView todayBelow = (TextView) findViewById(R.id.displayTodayBelow);
+        TextView averageBelow = (TextView) findViewById(R.id.displayAverageBelow);
+        TextView bestBelow = (TextView) findViewById(R.id.displayBestBelow);
+
+//        fonts
+        Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
+        bestView.setTypeface(tf);
+        todayView.setTypeface(tf);
+        averageView.setTypeface(tf);
+        todayBelow.setTypeface(tf);
+        averageBelow.setTypeface(tf);
+        bestBelow.setTypeface(tf);
+        taskSubject.setTypeface(tf);
 
     }
 
