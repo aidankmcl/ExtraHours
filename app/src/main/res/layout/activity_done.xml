@@ -10,6 +10,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/textView"
+        android:textSize="40sp"
+        android:layout_margin="50dp"
         android:layout_gravity="center_horizontal" />
 
     <TextView
@@ -17,40 +19,56 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Today:"
-        android:id="@+id/textView4" />
+        android:id="@+id/textView4"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="3:15"
-        android:id="@+id/today" />
+        android:id="@+id/today"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Average:"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="3:00"
-        android:id="@+id/average" />
+        android:id="@+id/average"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Best"
-        android:id="@+id/textView3" />
+        android:id="@+id/textView3"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="2:45"
-        android:id="@+id/best" />
+        android:id="@+id/best"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/stopwatch"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
