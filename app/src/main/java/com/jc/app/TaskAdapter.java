@@ -2,6 +2,7 @@ package com.jc.app;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,7 +75,10 @@ public class TaskAdapter extends ArrayAdapter<Task> {
 
         String av = DoneActivity.intToTime(average);
 
-
+        String completed = item.complete;
+        if (completed.equals("true")) {
+            feedRow.setBackgroundColor(Color.parseColor("#6ACD70"));
+        }
 
         holder.name.setText(shorter);
         holder.avgn.setText(av);
