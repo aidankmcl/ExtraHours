@@ -38,7 +38,6 @@ public class TimeMe extends Activity {
             value = extras.getString("position");
             ide = extras.getString("id");
             name = extras.getString("name");
-            Log.d("extrasss", name);
         } else {
             ide = "0";
         }
@@ -50,7 +49,6 @@ public class TimeMe extends Activity {
 
 
         String nameOfTask = tasks.get(Integer.parseInt(value)).toString();
-        //Log.d("Please work you can do it", booya);
         TextView timerSubject = (TextView) findViewById(R.id.timerSubject);
 
         Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
