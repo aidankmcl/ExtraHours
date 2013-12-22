@@ -91,7 +91,7 @@ public class DBHandler {
     //Getting Tasks by Size in descending priority order
     public ArrayList<Task> getTasks(){
         return sweepCursor(
-                database.query(DBModel.TABLE_NAME, allColumns, null, null, null, null, DBModel.WHEN));
+                database.query(DBModel.TABLE_NAME, allColumns, null, null, null, null, DBModel.WHEN + " DESC"));
         }
 
         public Task getTaskByName(String name){
