@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -60,6 +59,12 @@ public class MakeTask extends Activity {
                         break;
                     }
                 }
+
+                if (name.equals("")) {
+                    Toast.makeText(getApplicationContext(), "Choose a name!", Toast.LENGTH_SHORT).show();
+                    skip = "true";
+                }
+
                 if (skip.equals("false")) {
                     Task task = new Task(name,"false","none",0,when,100000,0,0);
                     task.setId("");

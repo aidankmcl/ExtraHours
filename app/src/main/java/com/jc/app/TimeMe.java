@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by amclaughlin on 12/17/13.
@@ -56,17 +58,23 @@ public class TimeMe extends Activity {
         timerSubject.setTypeface(tf);
         timerSubject.setTextColor(Color.parseColor("#14b8db"));
 
+        final Map<String, Integer> map = new HashMap<String, Integer>();
+        final String[] timing = {"false"};
+
+
         chronometer = (Chronometer) findViewById(R.id.chronometer);
         chronometer.setTextColor(Color.parseColor("#14b8db"));
         chronometer.setTypeface(tf);
 
         chronometer.setBase(SystemClock.elapsedRealtime());
-        ImageButton start_button = (ImageButton) findViewById(R.id.start_button);
-        ImageButton stop_button = (ImageButton) findViewById(R.id.stop_button);
+        final ImageButton start_button = (ImageButton) findViewById(R.id.start_button);
+        start_button.setImageResource(R.drawable.play_wide);
+//        ImageButton stop_button = (ImageButton) findViewById(R.id.stop_button);
         ImageButton done_button = (ImageButton) findViewById(R.id.done_button);
 
         start_button.setOnClickListener(new ImageButton.OnClickListener() {
             public void onClick(View view) {
+                if (timing[0].equals("false")) {
                 int stoppedMilliseconds = 0;
 
                 String chronoText = chronometer.getText().toString();
@@ -82,14 +90,23 @@ public class TimeMe extends Activity {
 
                 chronometer.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
                 chronometer.start();
-            }
-        });
+                start_button.setImageResource(R.drawable.pause_wide);
+                timing[0] = "true";
 
-        stop_button.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View view) {
-                chronometer.stop();
+                } else {
+                    chronometer.stop();
+                    start_button.setImageResource(R.drawable.play_wide);
+                    timing[0] = "false";
+                }
+
             }
         });
+//
+//        stop_button.setOnClickListener(new Button.OnClickListener() {
+//            public void onClick(View view) {
+//                chronometer.stop();
+//            }
+//        });
 
         done_button.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
