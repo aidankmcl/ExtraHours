@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,19 +35,43 @@ public class MainActivity extends Activity{
 
         final DBHandler db = new DBHandler(this);
         db.open();
+
         final ArrayList<Task> tasks = db.getTasks();
 
         final TaskAdapter taskListAdapter = new TaskAdapter(this.getApplicationContext(), tasks);
 
         TextView message = (TextView) findViewById(R.id.hintText);
+        TextView totalTime = (TextView) findViewById(R.id.totalTimeText);
         if (taskListAdapter.isEmpty()){
             message.setVisibility(View.VISIBLE);
+            totalTime.setVisibility(View.GONE);
         }
         else {
             message.setVisibility(View.GONE);
+            totalTime.setVisibility(View.VISIBLE);
         }
 
         mainTasks.setAdapter(taskListAdapter);
+
+        String estimatedTime;
+        Integer timeForAllTasks = 0;
+        db.open();
+        ArrayList<Task> getTimeArrayList = db.getTasks();
+        for (int x=0;x<getTimeArrayList.size();x++) {
+            Task counting = tasks.get(x);
+            if (counting.total > 0) {
+            int avgIndividual = counting.allTime/counting.total;
+            timeForAllTasks += avgIndividual;
+            }
+        }
+
+        estimatedTime = DoneActivity.intToTime(timeForAllTasks);
+
+        totalTime.setText("Total   "+ estimatedTime);
+        totalTime.setTypeface(tf);
+        totalTime.setTextColor(Color.parseColor("#ffffff"));
+        totalTime.setBackgroundColor(Color.parseColor("#14b8db"));
+
 
         mainTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1,
@@ -58,14 +83,13 @@ public class MainActivity extends Activity{
                     Intent i = new Intent(getApplicationContext(), DoneActivity.class); // creates a new intent i, which is how Android passes information between activities, and defines this intent as a way to navigate to the SecondActivity
                     i.putExtra("position", String.valueOf(pos));
                     i.putExtra("id", ide);
-                    i.putExtra("name",((Task) arg0.getItemAtPosition(pos)).name);
+                    i.putExtra("name", ((Task) arg0.getItemAtPosition(pos)).name);
                     startActivityForResult(i, 1); // tells Android to make the intent active
-                }
-                else {
+                } else {
                     Intent i = new Intent(getApplicationContext(), TimeMe.class); // creates a new intent i, which is how Android passes information between activities, and defines this intent as a way to navigate to the SecondActivity
                     i.putExtra("position", String.valueOf(pos));
                     i.putExtra("id", ide);
-                    i.putExtra("name",((Task) arg0.getItemAtPosition(pos)).name);
+                    i.putExtra("name", ((Task) arg0.getItemAtPosition(pos)).name);
                     startActivityForResult(i, 1); // tells Android to make the intent active
                 }
 
@@ -127,10 +151,10 @@ public class MainActivity extends Activity{
                 db.open();
                 ArrayList<Task> tasks = db.getTasks();
                 for (int x=0;x<tasks.size();x++) {
-                    Task inBetween = tasks.get(x);
-                    inBetween.complete = "false";
+                    Task setCompFalse = tasks.get(x);
+                    setCompFalse.complete = "false";
                     db.deleteTaskByName(tasks.get(x).name);
-                    db.addTask(inBetween);
+                    db.addTask(setCompFalse);
                     Intent resetActivity = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(resetActivity);
                 }
