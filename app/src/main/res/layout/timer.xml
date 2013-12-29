@@ -5,27 +5,27 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center">
 
-    <com.jc.app.AutoResizeTextView
-        android:id="@+id/timerSubject"
-        android:layout_width="wrap_content"
-        android:gravity="center"
-        android:maxLines="2"
-        android:text="Timer"
-        android:textSize="50sp"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:textIsSelectable="true"
-        android:layout_marginTop="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <!--<com.jc.app.AutoResizeTextView-->
+        <!--android:id="@+id/timerSubject"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:maxLines="2"-->
+        <!--android:text="Timer"-->
+        <!--android:textSize="50sp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingTop="5dp"-->
+        <!--android:textIsSelectable="true"-->
+        <!--android:layout_marginTop="25dp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true" />-->
 
     <Chronometer
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/chronometer"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:textSize="75sp"
+        android:layout_marginTop="50dp"
+        android:textSize="125sp"
         android:layout_below="@+id/timerSubject"
         android:layout_centerHorizontal="true" />
 

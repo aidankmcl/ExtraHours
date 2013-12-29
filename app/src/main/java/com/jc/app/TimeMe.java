@@ -49,14 +49,14 @@ public class TimeMe extends Activity {
         var = db.getTaskByName(name);
         ArrayList<Task> tasks = db.getTasks();
 
-
         String nameOfTask = tasks.get(Integer.parseInt(value)).toString();
         TextView timerSubject = (TextView) findViewById(R.id.timerSubject);
+        this.setTitle(nameOfTask);
 
         Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
-        timerSubject.setText(nameOfTask);
-        timerSubject.setTypeface(tf);
-        timerSubject.setTextColor(Color.parseColor("#14b8db"));
+//        timerSubject.setText(nameOfTask);
+//        timerSubject.setTypeface(tf);
+//        timerSubject.setTextColor(Color.parseColor("#14b8db"));
 
         final Map<String, Integer> map = new HashMap<String, Integer>();
         final String[] timing = {"false"};

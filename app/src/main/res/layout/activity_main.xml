@@ -27,6 +27,8 @@
         android:layout_height="75dp"
         android:layout_width="match_parent"
         android:text="Total   "
+        android:background="@color/suBlue"
+        android:textColor="@color/white"
         android:id="@+id/totalTimeText"
         android:layout_alignParentBottom="true"
         android:gravity="center"

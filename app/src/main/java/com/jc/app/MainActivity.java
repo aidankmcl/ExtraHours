@@ -56,12 +56,11 @@ public class MainActivity extends Activity{
         String estimatedTime;
         Integer timeForAllTasks = 0;
         db.open();
-        ArrayList<Task> getTimeArrayList = db.getTasks();
-        for (int x=0;x<getTimeArrayList.size();x++) {
+        for (int x=0;x<tasks.size();x++) {
             Task counting = tasks.get(x);
             if (counting.total > 0) {
-            int avgIndividual = counting.allTime/counting.total;
-            timeForAllTasks += avgIndividual;
+                int avgIndividual = counting.allTime/counting.total;
+                timeForAllTasks += avgIndividual;
             }
         }
 
@@ -69,8 +68,6 @@ public class MainActivity extends Activity{
 
         totalTime.setText("Total   "+ estimatedTime);
         totalTime.setTypeface(tf);
-        totalTime.setTextColor(Color.parseColor("#ffffff"));
-        totalTime.setBackgroundColor(Color.parseColor("#14b8db"));
 
 
         mainTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
