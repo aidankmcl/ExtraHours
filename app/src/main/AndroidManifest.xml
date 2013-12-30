@@ -17,6 +17,7 @@
         android:debuggable="false">
         <activity
             android:name="com.jc.app.MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,9 +26,9 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".MakeTask" android:label="Add Task"/>
-        <activity android:name=".TimeMe" android:label="Timer"/>
-        <activity android:name=".DoneActivity" android:label="DoneActivity"/>
+        <activity android:name=".MakeTask" android:label="Add Task" android:screenOrientation="portrait"/>
+        <activity android:name=".TimeMe" android:label="Timer" android:screenOrientation="portrait"/>
+        <activity android:name=".DoneActivity" android:label="DoneActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
