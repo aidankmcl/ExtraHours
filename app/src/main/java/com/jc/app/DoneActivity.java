@@ -36,32 +36,40 @@ public class DoneActivity extends Activity {
         } else {
             ide = "0";
         }
-
+        
+        // Initializing SQLiteHelper Database
         final DBHandler db = new DBHandler(this);
         db.open();
         var = db.getTaskByName(name);
         ArrayList<Task> tasks = db.getTasks();
 
-
+        // Sets Task Name
         String taskName = tasks.get(Integer.parseInt(value)).toString();
         TextView taskSubject = (TextView) findViewById(R.id.DoneTaskTitle);
         taskSubject.setText(taskName);
 
-        TextView averageView = (TextView) findViewById(R.id.average);
+        //Doing math for displaying average time
         int totalTime = var.allTime;
         int totalTries = var.total;
-        int average = totalTime/totalTries;
+        int average = totalTime/totalTries
+        
+        //Displaying all the info by calling TextViews and populating them with times
+        TextView averageView = (TextView) findViewById(R.id.average);
         averageView.setText(intToTime(average));
+        
         TextView bestView = (TextView) findViewById(R.id.best);
         bestView.setText(intToTime(var.best));
+        
         TextView todayView = (TextView) findViewById(R.id.today);
         todayView.setText(intToTime(Integer.parseInt(var.length)));
 
+        //Initializing TextViews, these ones have string reference
+        //in the XML
         TextView todayBelow = (TextView) findViewById(R.id.displayTodayBelow);
         TextView averageBelow = (TextView) findViewById(R.id.displayAverageBelow);
         TextView bestBelow = (TextView) findViewById(R.id.displayBestBelow);
 
-//        fonts
+        //Fonts need to be applied to the TextViews programatically
         Typeface tf = Typeface.createFromAsset(getAssets(), "missiongl.otf");
         bestView.setTypeface(tf);
         todayView.setTypeface(tf);
@@ -83,6 +91,8 @@ public class DoneActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Time is stored as integers in our Database so it's important 
+    //to turn them back into more readable time when being displayed
     public static String intToTime(int time) {
         int seconds = time % 60;
         String secondsString = String.valueOf(seconds);
